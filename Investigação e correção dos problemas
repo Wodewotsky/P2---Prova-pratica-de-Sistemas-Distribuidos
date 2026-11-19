@@ -1,0 +1,20 @@
+Problema A - Concorrência
+
+Apenas dois pedidos podem estar em processamento.
+
+Resposta:
+Na variável MAXIMO_SIMULTANEO é definido o valor máximo de instancias que podem processar simultaneamente, alterando este valor vai resolver o problema.
+execução:
+py central_pedidos.py
+=== Central de Pedidos ===
+Limite simultaneo:  2
+Estoque inicial 10
+Pedidos confirmados: [101, 102, 103]
+Estoque principal: 7
+Replica antes: 10
+Replica depois: 10
+Consulta apos falha: INDISPONIVEL None
+
+Problema B - 
+localize a função sincronizar()
+analise a instrução resposn
