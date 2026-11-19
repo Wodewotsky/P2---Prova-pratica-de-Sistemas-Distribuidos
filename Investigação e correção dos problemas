@@ -16,5 +16,32 @@ Replica depois: 10
 Consulta apos falha: INDISPONIVEL None
 
 Problema B - 
-localize a função sincronizar()
-analise a instrução resposn
+O estoque réplica e principal não estão sincronizados.
+
+Resposta: 
+Na linha 30: def sincronizar():
+    replica["estoque"] = principal["estoque"]
+antes estava definido apenas para sincrinizar a replica novamente. Segue resultado:
+Limite simultaneo:  3
+Estoque inicial 10
+Pedidos confirmados: [101, 102, 103]
+Estoque principal: 7
+Replica antes: 10
+Replica depois: 7
+Consulta apos falha: INDISPONIVEL None
+
+Problema C -
+O sistema deve permitir consultas quando o principal estiver indisponível.
+
+Resposta:
+na linha 40 está checando apenas se o servidor principal está online:
+
+    if principal["online"]:
+        return (
+            "REPLICA",
+            replica["estoque"]
+deveria permitir a réplica:
+if replica["online"]:
+        return (
+            "REPLICA",
+            replica["estoque"]
